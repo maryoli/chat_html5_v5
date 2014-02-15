@@ -15,3 +15,7 @@ app.set("views", __dirname + "/vistas");
 app.set("view engine", "dust");
 
 console.log("servidor web listo");
+
+app.get("/",function(req, res){
+	res.render("cliente");
+});
