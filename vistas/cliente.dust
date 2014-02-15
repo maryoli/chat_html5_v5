@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Chat en Vivo con Web Sockets</title>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<link href="css/estilos.css" rel="stylesheet"/>
+		<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+		<!--
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		-->
+		<script src="javascript/jquery-1.10.2.min.js"></script>
+
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="chat">
+			<!-- titulos del chat -->
+			<h1>Chat en Vivo</h1>
+			<h4>Mensajes de los usuarios:</h4>
+
+			<!-- caja de mensajes de los nuevos usuarios -->
+			<div id="mensajes">
+				<div class="mensaje">
+					<span>Ismael dice:</span> bla bla bla
+				</div>
+				<div class="mensaje">
+					<span>Ismael dice:</span> bla bla bla
+				</div>
+			</div>
+
+			<!-- mensaje del usuario -->
+			<p>
+				<label>Mensaje:</label>
+				<input id="mensaje-usuario" type="text" placeholder="Escriba su mensaje aqui"/>
+			</p>
+
+			<!-- nombre del usuario -->
+			<p>
+				<label>Usuario:</label>
+				<input id="nombre-usuario" type="text" placeholder="Su nombre aqui"/>
+			</p>
+
+			<!-- boton de enviar -->
+			<button id="boton">
+				Enviar
+			</button>
+
+		</div>
+	</body>
+</html>
