@@ -10,8 +10,34 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		-->
 		<script src="javascript/jquery-1.10.2.min.js"></script>
-
-		<script type="text/javascript"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			/*nos conectamos al websocket definido en el servidor*/
+			var socket = io.connect("http://localhost:8021");
+			socket.on("mensaje_al_cliente", function(datosServidor){
+				var mensajesCaja = $("#mensajes");
+				var mensaje = "<div class='mensaje'><span>"+datosServidor.nombre+":</span>"+datosServidor.mensaje+"</div>";
+				mensajesCaja.append(mensaje);
+			});
+			/*los comentarios deben ir con diagonal asterisco porque al compactar el código no comenta las demás líneas*/
+			/*boton es un objeto de JQUERY*/
+			var boton = $("#boton");
+			boton.click(function(){
+				/*alert("ocurrió un click");*/
+				var mensajeCaja = $("#mensaje-usuario");
+				var mensaje = mensajeCaja.val();
+				/*alert(mensaje);*/
+				var nombreCaja = $("#nombre-usuario");
+				var nombre = nombreCaja.val();
+				/*alert(nombre);*/
+				socket.emit("mensaje_al_servidor", {
+					mensaje:mensaje,
+					nombre:nombre
+				});
+			});
+		});
+		</script>
 	</head>
 	<body>
 		<div id="chat">
@@ -21,12 +47,6 @@
 
 			<!-- caja de mensajes de los nuevos usuarios -->
 			<div id="mensajes">
-				<div class="mensaje">
-					<span>Ismael dice:</span> bla bla bla
-				</div>
-				<div class="mensaje">
-					<span>Ismael dice:</span> bla bla bla
-				</div>
 			</div>
 
 			<!-- mensaje del usuario -->
